@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+            <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script> 
+      <script type="text/javascript">  
+      	$(document).ready(function() {
+    		$('select').material_select();
+  		});
+  	  </script>
+	<style type="text/css">
+		p.text {
+			line-height: 1.38;
+			margin-top: 0pt;
+			margin-bottom: 0pt;
+			font-family: Arial;
+			color:#01A461;
+		}
+		td.row1 {
+			width:30px;
+			font-weight: bold;
+		}
+		td.phone {
+			width:170px;
+			color:#01A461;
+		}
+		td.bold {
+			color:#01A461;
+			font-weight: bold;
+			font-size: 10pt;
+		}
+		a.link { 
+		color:#01A461;
+		}
+		table.main {
+			border: 0px;
+			border-bottom: 0px;
+			padding: -2px !important;
+		}
+		.btn-large {
+			background-color: #01A461;
+		}
+		.btn-large:hover {
+			background-color: #01d77f;
+		}
+		.btn-large:focus {
+			background-color: #01A461;
+		}
+		.nav-wrapper {
+			background-color: #8DC4A3;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+	    <div class="nav-wrapper" style="text-shadow: 10px">
+	      <a href="#" class="brand-logo center">FAECTOR Email Signature Generator</a>
+	    </div>
+ 	</nav>
+	<div  class="container">
+		<div class="card white">
+			<div class="card-content">
+				<div class="row">
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s6">
+								<input placeholder="First name" id="first_name_input" type="text" class="validate">
+								<label for="first_name">First name:</label>
+							</div>
+							<div class="input-field col s6">
+								<input placeholder="Family name" id="last_name_input" type="text" class="validate">
+								<label for="family_name">Family name:</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+								<select id="committee_selector">
+							      <option value="" disabled selected>Choose your option</option>
+							      <option value="1">Activities Committee</option>
+							      <option value="2">Alumni Committee</option>
+							      <option value="3">Business Trip Committee</option>
+							      <option value="4">Consultancy Committee</option>
+							      <option value="5">ECD Committee</option>
+							      <option value="6">Eerstejaarscommissie</option>
+							      <option value="7">Estimator Committee</option>
+							      <option value="8">Event Committee</option>
+							      <option value="9">External Committee</option>
+							      <option value="10">FRP 2017 Committee</option>
+							      <option value="11">FRP 2018 Committee</option>
+							      <option value="12">Freshmen Committee</option>
+							      <option value="13">IT Committee</option>
+							      <option value="14">InAct Committee</option>
+							      <option value="15">Marketing Committee</option>
+							      <option value="16">QFT Committee</option>
+							    </select>
+							    <label>Choose your committee:</label>
+							</div>
+							<div class="input-field col s6">
+								<input placeholder="Email" id="committee_email_input" type="email" class="validate">
+								<label for="committee_email_input" data-error="Wrong email, please type again">Please type in your committee email:</label>
+							</div>
+						</div>
+						<div class="row center">
+							<a id ="generate_signature_btn" class="waves-effect waves-light btn-large" onclick="generateSignature()">Generate my signature!</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="card green faector">
+			<div class="card-content white-text center">
+				<span class="card-title"><strong>Here's your new signature:</strong></span>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="card-panel">
+			<div class="materialize.browser-default">
+				<div id="gmail-signature">
+					<p class="text" style="font-size: 16px;font-weight: bold;font-size: 19px"><span id="first_name_signature">FIRSTNAME</span> <span id="last_name_signature">LASTNAME</span></p>
+					<p class="text" style="font-size: 15px;color: grey">| On behalf of the <span id="committee_name_signature">COMMITTEENAME</span></p>
+					<p class="text" style="font-size: 12px;color: grey">| Faculty Association Econometrics & Operations Research</p>
+					<p style="line-height:1.38"><img alt="FAECTOR logo" height="67" src="http://files.verdickeme.nl/logo4.png"></p>
+					<table border="0" cellpadding="0" cellspacing="0" style="width:550px;font-family:Helvetica;font-size:10pt" class="main">
+						<tbody>
+							<tr>
+								<td class="row1">T.</td>
+								<td class="phone">+ 31 10 408 14 39</td>
+								<td class="bold">Visiting address:</td>
+								<td class="bold">Postal address:</td>
+							</tr>
+							<tr>
+								<td class="row1">M.</td>
+								<td class="phone">+ 31 6 12 34 56 78</td>
+								<td>EUR</td>
+								<td>Erasmus University Rotterdam</td>
+							</tr>
+							<tr>
+								<td class="row1">E.</td>
+								<td style="width:170px">
+									<a id="committee_email_signature" class="link" target="_blank"><span id="committee_email_text">COMMITTEEMAIL@faector.nl</span></a><br>
+								</td>
+								<td>Room H10-05<br></td>
+								<td>Room H11-02</td>
+							</tr>
+							<tr>
+								<td class="row1">I.</td>
+								<td style="width:170px;color:rgb(0,150,84)">
+									<a href="https://faector.nl" target="_blank" class="link" ">faector.nl</a>
+								</td>
+								<td>
+									<a class="link" href="https://goo.gl/maps/s1FCAWC26q42">Burgemeester Oudlaan 50</a><br>
+								</td>
+								<td>P.O. Box 1738<br></td>
+							</tr>
+							<tr>
+								<td class="row1">I2.</td>
+								<td style="width:170px;color:rgb(0,150,84)">
+									<a class="link" href="http://www.econometrie.com/" target="_blank">www.econometrie.com</a><br>
+								</td>
+								<td>3062 PA Rotterdam</td>
+								<td>3000 DR Rotterdam</td>
+							</tr>
+							
+							<tr>
+								<td style="width:30px"></td>
+								<td style="width:30px">
+									<a href="https://www.facebook.com/faector/" target="_blank"><img class="CToWUd" height="20" src="http://www.nivonrotterdam.nl/wp-content/uploads/2015/04/logofacebook.png" style="border:none" width="20"></a><a href="https://www.linkedin.com/company/1744994/" target="_blank"><span style="font-size:10pt;font-family:Arial;color:rgb(17,85,204);background-color:transparent;vertical-align:baseline;white-space:pre-wrap"><img class="CToWUd" height="20" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Scs1IdH-YkQupJ4kORugU6CdxEP9fhU0Foa_WyTQiKrm4iao" style="border:none" width="20"></span></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="center">
+		<a id="copy-button" class="waves-effect waves-light btn-large" onclick="CopyToClipboard('gmail-signature')">Copy my signature!</a>
+	</div>
+	<script type="text/javascript">
+		function CopyToClipboard(containerid) {
+		if (document.selection) { 
+		    var range = document.body.createTextRange();
+		    range.moveToElementText(document.getElementById(containerid));
+		    range.select().createTextRange();
+		    document.execCommand("copy"); 
+
+		} else if (window.getSelection) {
+		    var range = document.createRange();
+		     range.selectNode(document.getElementById(containerid));
+		     window.getSelection().addRange(range);
+		     document.execCommand("copy");
+		}
+		document.getElementById('copy-button').innerHTML = "Text copied!";
+		document.getElementById('copy-button').className += " disabled";
+		}
+	</script>
+	<script type="text/javascript">
+		function generateSignature() {
+			setFirstLastName();
+			setCommitteeName();
+			setCommitteeEmail();
+		}
+		function setFirstLastName() {
+			var firstNameValue = document.getElementById("first_name_input").value;
+			document.getElementById("first_name_signature").innerHTML = firstNameValue;
+			var lastNameValue = document.getElementById("last_name_input").value;
+			document.getElementById("last_name_signature").innerHTML = lastNameValue;
+		}
+		function setCommitteeName() {
+			var c = document.getElementById("committee_selector");
+			var strCommitteeName = c.options[c.selectedIndex].text;
+			document.getElementById("committee_name_signature").innerHTML = strCommitteeName;
+		}
+		function setCommitteeEmail() {
+			var committeeEmailValue = document.getElementById("committee_email_input").value;
+			var a = document.getElementById("committee_email_signature")
+			a.href = "mailto:" + committeeEmailValue;
+			document.getElementById("committee_email_text").innerHTML = committeeEmailValue;
+		}
+	</script>
+</body>
+</html>
