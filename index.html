@@ -6,12 +6,12 @@
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
       <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
             <script type = "text/javascript"
-         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
-      </script> 
-      <script type="text/javascript">  
+      </script>
+      <script type="text/javascript">
       	$(document).ready(function() {
     		$('select').material_select();
   		});
@@ -37,7 +37,7 @@
 			font-weight: bold;
 			font-size: 10pt;
 		}
-		a.link { 
+		a.link {
 		color:#01A461;
 		}
 		table.main {
@@ -65,7 +65,7 @@
 	      <a href="#" class="brand-logo center">FAECTOR Email Signature Generator</a>
 	    </div>
  	</nav>
-	<div  class="container">
+	<div  class="container" id="signature_input_container">
 		<div class="card white">
 			<div class="card-content">
 				<div class="row">
@@ -107,6 +107,10 @@
 								<input placeholder="Email" id="committee_email_input" type="email" class="validate">
 								<label for="committee_email_input" data-error="Wrong email, please type again">Please type in your committee email:</label>
 							</div>
+              <div class="input-field col s12">
+                <input placeholder="Phone" id="phone_input" type="tel" class="validate">
+                <label for="committee_email_input" data-error="Wrong phone number format, please type again">Please type in your phone:</label>
+              </div>
 						</div>
 						<div class="row center">
 							<a id ="generate_signature_btn" class="waves-effect waves-light btn-large" onclick="generateSignature()">Generate my signature!</a>
@@ -116,91 +120,149 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container" id="signature_title_container" style="display: none">
 		<div class="card green faector">
 			<div class="card-content white-text center">
 				<span class="card-title"><strong>Here's your new signature:</strong></span>
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container" id="signature_container" style="display: none">
 		<div class="card-panel">
 			<div class="materialize.browser-default">
-				<div id="gmail-signature">
-					<p class="text" style="font-size: 16px;font-weight: bold;font-size: 19px"><span id="first_name_signature">FIRSTNAME</span> <span id="last_name_signature">LASTNAME</span></p>
-					<p class="text" style="font-size: 15px;color: grey">| On behalf of the <span id="committee_name_signature">COMMITTEENAME</span></p>
-					<p class="text" style="font-size: 12px;color: grey">| Faculty Association Econometrics & Operations Research</p>
-					<p style="line-height:1.38"><img alt="FAECTOR logo" height="67" src="http://files.verdickeme.nl/logo4.png"></p>
-					<table border="0" cellpadding="0" cellspacing="0" style="width:550px;font-family:Helvetica;font-size:10pt" class="main">
-						<tbody>
-							<tr>
-								<td class="row1">T.</td>
-								<td class="phone">+ 31 10 408 14 39</td>
-								<td class="bold">Visiting address:</td>
-								<td class="bold">Postal address:</td>
-							</tr>
-							<tr>
-								<td class="row1">M.</td>
-								<td class="phone">+ 31 6 12 34 56 78</td>
-								<td>EUR</td>
-								<td>Erasmus University Rotterdam</td>
-							</tr>
-							<tr>
-								<td class="row1">E.</td>
-								<td style="width:170px">
-									<a id="committee_email_signature" class="link" target="_blank"><span id="committee_email_text">COMMITTEEMAIL@faector.nl</span></a><br>
-								</td>
-								<td>Room H10-05<br></td>
-								<td>Room H11-02</td>
-							</tr>
-							<tr>
-								<td class="row1">I.</td>
-								<td style="width:170px;color:rgb(0,150,84)">
-									<a href="https://faector.nl" target="_blank" class="link" ">faector.nl</a>
-								</td>
-								<td>
-									<a class="link" href="https://goo.gl/maps/s1FCAWC26q42">Burgemeester Oudlaan 50</a><br>
-								</td>
-								<td>P.O. Box 1738<br></td>
-							</tr>
-							<tr>
-								<td class="row1">I2.</td>
-								<td style="width:170px;color:rgb(0,150,84)">
-									<a class="link" href="http://www.econometrie.com/" target="_blank">www.econometrie.com</a><br>
-								</td>
-								<td>3062 PA Rotterdam</td>
-								<td>3000 DR Rotterdam</td>
-							</tr>
-							
-							<tr>
-								<td style="width:30px"></td>
-								<td style="width:30px">
-									<a href="https://www.facebook.com/faector/" target="_blank"><img class="CToWUd" height="20" src="http://www.nivonrotterdam.nl/wp-content/uploads/2015/04/logofacebook.png" style="border:none" width="20"></a><a href="https://www.linkedin.com/company/1744994/" target="_blank"><span style="font-size:10pt;font-family:Arial;color:rgb(17,85,204);background-color:transparent;vertical-align:baseline;white-space:pre-wrap"><img class="CToWUd" height="20" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Scs1IdH-YkQupJ4kORugU6CdxEP9fhU0Foa_WyTQiKrm4iao" style="border:none" width="20"></span></a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+        <html>
+        	<style type="text/css">
+        		p.text {
+        			line-height: 1.38;
+        			margin-top: 0pt;
+        			margin-bottom: 0pt;
+        			font-family: Arial;
+        			color:#009654;
+        		}
+        		td.row1 {
+        			width:30px;
+        			font-weight: bold;
+        		}
+        		td.phone {
+        			width:170px;
+        			color:#009654;
+        		}
+        		td.bold {
+        			color:#009654;
+        			font-weight: bold;
+        			font-size: 10pt;
+        		}
+        		a.link {
+        		color:#009654;
+        		}
+        		table.main {
+        			border: 0px;
+        			border-bottom: 0px;
+        			padding: -2px !important;
+        		}
+        		.btn-large {
+        			background-color: #01A461;
+        		}
+        		.btn-large:hover {
+        			background-color: #01d77f;
+        		}
+        		.btn-large:focus {
+        			background-color: #01A461;
+        		}
+        		.nav-wrapper {
+        			background-color: #8DC4A3;
+        		}
+        	</style>
+        <body>
+        	<div id="gmail-signature">
+        		<p class="text" style="font=small/1.5 Arial,Helvetica,sans-serif; font-size: 10pt;font-weight: bold; color:black"><span id="first_name_signature">FIRSTNAME</span> <span 		id="last_name_signature">LASTNAME</span></p>
+        		<p class="text" style="font-size: 10pt;color: black">On behalf of the <span id="committee_name_signature">COMMITTEE</span></p>
+        		<p style="line-height:1.38"><img alt="FAECTOR logo" height="51" src="https://imgur.com/Ivt2oQH.jpg"></p>
+        		<table border="0" cellpadding="0" cellspacing="0" style="width:630px;font-family:Helvetica;font-size:10pt" class="main">
+        			<tbody>
+        				<tr>
+        					<td class="row1">T.</td>
+        					<td class="phone">+ 31 10 4081439</td>
+        					<td class="bold">Visiting address:</td>
+        					<td class="bold">Postal address:</td>
+        				</tr>
+        				<tr>
+        					<td class="row1">M.</td>
+        					<td class="phone" id="phone_mobile">+ 31 6 12345678</td>
+        					<td>EUR</td>
+        					<td>Erasmus University Rotterdam</td>
+        				</tr>
+        				<tr>
+        					<td class="row1">E.</td>
+        					<td style="width:150px">
+        						<a id="committee_email_signature" class="link" target="_blank"><span id="committee_email_text">MAIL@faector.nl</span></a><br>
+        					</td>
+        					<td>Room H10-05<br></td>
+        					<td>Room H11-02</td>
+        				</tr>
+        				<tr>
+        					<td class="row1">I.</td>
+        					<td style="width:170px;color:rgb(0,150,84)">
+        						<a href="https://faector.nl" target="_blank" class="link" ">www.faector.nl</a>
+        					</td>
+        					<td>
+        					Burgemeester Oudlaan 50<br>
+        					</td>
+        					<td>P.O. Box 1738<br></td>
+        				</tr>
+        				<tr>
+        					<td class="row1">I2.</td>
+        					<td style="width:170px;color:rgb(0,150,84)">
+        						<a class="link" href="http://www.econometrie.com/" target="_blank">www.econometrie.com</a><br>
+        					</td>
+        					<td>3062 PA Rotterdam</td>
+        					<td>3000 DR Rotterdam</td>
+        				</tr>
+        				<tr>
+        					<td style=" height:15px"></td>
+        				</tr>
+        				<tr>
+        					<td style="width:30px"></td>
+        					<td style="width:30px">
+        						<a href="https://www.facebook.com/faector/" target="_blank"><img class="CToWUd" height="20" src="https://imgur.com/hEf2EUA.jpg" 						style="border:none" width="20"></a>
+        						<a href="https://www.linkedin.com/company/1744994/" target="_blank"><span style="font-size:10pt;font-family:Arial;color:rgb(17,85,204);background-color:transparent;vertical-align:baseline;white-space:pre-wrap"><img class="CToWUd" height="20" src="https://imgur.com/iukuZIT.jpg" style="border:none" width="20"></span></a>
+        					</td>
+        				</tr>
+        			</tbody>
+        		</table>
+
+        		<p class="text">____________________________ <br></p>
+
+        		<p class="text" style="font-size:7pt; color:grey">
+        			The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share <br>
+        			any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, <br>
+        			please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future. <br>
+        			<br>
+        			Think about the environment before printing this email.
+        		</p>
+        	</div>
+        </body>
+        </html>
 			</div>
 		</div>
 	</div>
 
-	<div class="center">
+	<div class="center" id="copy-button-div" style="display: none">
 		<a id="copy-button" class="waves-effect waves-light btn-large" onclick="CopyToClipboard('gmail-signature')">Copy my signature!</a>
 	</div>
 	<script type="text/javascript">
 		function CopyToClipboard(containerid) {
-		if (document.selection) { 
+		if (document.selection) {
 		    var range = document.body.createTextRange();
 		    range.moveToElementText(document.getElementById(containerid));
 		    range.select().createTextRange();
-		    document.execCommand("copy"); 
+		    setTimeout(document.execCommand("copy"), 10);
 
 		} else if (window.getSelection) {
 		    var range = document.createRange();
 		     range.selectNode(document.getElementById(containerid));
-		     window.getSelection().addRange(range);
-		     document.execCommand("copy");
+		     window.getSelection().selectAllChildren(document.getElementById(containerid));
+		     setTimeout(document.execCommand("copy"), 10);
 		}
 		document.getElementById('copy-button').innerHTML = "Text copied!";
 		document.getElementById('copy-button').className += " disabled";
@@ -211,6 +273,17 @@
 			setFirstLastName();
 			setCommitteeName();
 			setCommitteeEmail();
+      setPhone();
+			document.getElementById("generate_signature_btn").className += " disabled";
+			document.getElementById("generate_signature_btn").innerHTML = "Signature generated!";
+      var inputFields = document.getElementById("signature_input_container");
+      inputFields.style.display = "none";
+      var signatureTitleContainer = document.getElementById("signature_title_container");
+      signatureTitleContainer.style.display = "block";
+      var signatureContainer = document.getElementById("signature_container");
+      signatureContainer.style.display = "block";
+      var copyButton = document.getElementById("copy-button-div");
+      copyButton.style.display = "block";
 		}
 		function setFirstLastName() {
 			var firstNameValue = document.getElementById("first_name_input").value;
@@ -229,6 +302,10 @@
 			a.href = "mailto:" + committeeEmailValue;
 			document.getElementById("committee_email_text").innerHTML = committeeEmailValue;
 		}
+    function setPhone() {
+      var phoneNum = document.getElementById("phone_input").value;
+			document.getElementById("phone_mobile").innerHTML = phoneNum;
+    }
 	</script>
 </body>
 </html>
